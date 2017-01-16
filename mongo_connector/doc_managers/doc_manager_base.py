@@ -82,7 +82,7 @@ class DocManagerBase(object):
                         where = _retrieve_path(doc, path[:-1])
                         where.pop(_convert_or_raise(where, path[-1]))
                     else:
-                        doc.pop(to_unset)
+                        doc.pop(to_unset, None)
             except (KeyError, ValueError, AttributeError, IndexError):
                 exc_t, exc_v, exc_tb = sys.exc_info()
                 reraise(UpdateDoesNotApply,
